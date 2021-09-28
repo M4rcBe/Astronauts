@@ -4,4 +4,4 @@ In this Project, publically available information about all astronauts who parti
 Information about the database and the variables can be found: 
 https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-14/readme.md
 
-The analysis in R is devided in graphics and a linear regression model.
+The analysis in R is devided in graphics and linear regression.
