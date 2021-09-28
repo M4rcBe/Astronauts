@@ -1,14 +1,16 @@
-
+# Loading Packages
 library(tidyverse)
 library(janitor)
 library(knitr)
 
+# Loading data
 astronauts <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-14/astronauts.csv')
 
+
+# Building gender specific subsets 
 female <-subset(astronauts, astronauts$sex=="female")
 
 male <- subset(astronauts, astronauts$sex=="male")
-
 
 female_hours <- female$hours_mission
 male_hours <- male$hours_mission
@@ -28,8 +30,9 @@ mean_male_hours <- male_d %>%
        summarise(mean = mean(male_hours))
 
 
+## Relying on ggplot2 for visualization
 
-
+# I Time series diagram
 
 p <- ggplot() +
        geom_line(data=mean_female_hours, aes(x=female_years, y=mean, colour="Weiblich"),
@@ -58,7 +61,7 @@ pilot_mf <- data.frame(pilot_mf)
 
 pilot_mf$d<- as.numeric(pilot_mf$d)
 
-
+# II Barplot
 
 d <- ggplot(pilot_mf, aes(x=Legende, y=d, fill=Legende)) + 
        geom_bar(stat="identity")+
